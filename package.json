@@ -1,0 +1,54 @@
+{
+  "name": "@1onlinesolution/dws-log",
+  "version": "0.0.1",
+  "description": "A simple Logger",
+  "main": "index.js",
+  "scripts": {
+    "patch": "npm version patch",
+    "minor": "npm version minor",
+    "major": "npm version major",
+    "lint": "eslint *.js lib/**/*.js",
+    "test": "NODE_ENV=test mocha",
+    "coverage": "nyc --reporter=lcov --reporter=text --report-dir=./coverage --temp-dir=/Users/ioannis/tmp/.nyc_output npm run test",
+    "coverage-clean": "rm -rf ./coverage & rm -rf ./.nyc_output"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/1onlinesolution/dws-log.git"
+  },
+  "author": "1onlinesolution",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/1onlinesolution/dws-log/issues"
+  },
+  "homepage": "https://github.com/1onlinesolution/dws-log#readme",
+  "devDependencies": {
+    "dotenv": "^10.0.0",
+    "eslint": "^7.28.0",
+    "eslint-plugin-security": "^1.4.0",
+    "mocha": "^8.4.0",
+    "nyc": "^15.1.0",
+    "prettier": "^2.3.0"
+  },
+  "dependencies": {
+    "winston": "^3.3.3",
+    "winston-mongodb": "^5.0.7"
+  },
+  "mocha": {
+    "watch-files": [
+      "test/**/*.spec.js"
+    ],
+    "watch-ignore": [
+      "node_modules"
+    ],
+    "extension": [
+      "js"
+    ],
+    "slow": "2000=",
+    "timeout": "20000",
+    "reporter": "spec",
+    "require": "dotenv/config",
+    "recursive": "true",
+    "exit": "true"
+  }
+}
