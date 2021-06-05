@@ -1,6 +1,6 @@
 {
   "name": "@1onlinesolution/dws-log",
-  "version": "0.0.6",
+  "version": "0.0.8",
   "description": "A simple Logger",
   "main": "index.js",
   "scripts": {
