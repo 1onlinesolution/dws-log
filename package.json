@@ -1,6 +1,6 @@
 {
   "name": "@1onlinesolution/dws-log",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "A simple Logger",
   "main": "index.js",
   "scripts": {
@@ -26,7 +26,6 @@
   },
   "homepage": "https://github.com/1onlinesolution/dws-log#readme",
   "devDependencies": {
-    "dotenv": "^10.0.0",
     "eslint": "^7.28.0",
     "eslint-plugin-security": "^1.4.0",
     "mocha": "^8.4.0",
@@ -50,7 +49,6 @@
     "slow": "2000=",
     "timeout": "20000",
     "reporter": "spec",
-    "require": "dotenv/config",
     "recursive": "true",
     "exit": "true"
   }
