@@ -1,6 +1,6 @@
 {
   "name": "@1onlinesolution/dws-log",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "A simple Logger",
   "main": "index.js",
   "scripts": {
@@ -29,7 +29,6 @@
     "eslint": "^7.28.0",
     "eslint-plugin-security": "^1.4.0",
     "mocha": "^8.4.0",
-    "nyc": "^15.1.0",
     "prettier": "^2.3.0"
   },
   "dependencies": {
