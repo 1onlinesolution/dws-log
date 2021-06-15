@@ -6,8 +6,8 @@ const fileOptions = require('../lib/defaultFileOptions');
 
 consoleOptions.level = 'info';
 
-describe('Logger constructor', () => {
-  it('Default', () => {
+describe('Logger constructor', function() {
+  it('Default', function() {
     const logger = new Logger({});
     assert(logger.useConsole === false);
     assert(logger.useFile === false);
@@ -15,7 +15,7 @@ describe('Logger constructor', () => {
     assert(logger.usedTransports !== null);
     assert(logger.usedTransports.length === 0);
   });
-  it('Only file', () => {
+  it('Only file', function() {
     // Create a spy for the 'initialize' class method, because we do not want to create the logs/files
     const initialize = sinon.stub(Logger.prototype, 'initialize');
 
@@ -30,7 +30,7 @@ describe('Logger constructor', () => {
 
     initialize.restore();
   });
-  it('Only console', () => {
+  it('Only console', function() {
     const logger = new Logger({ useConsole: true });
     assert(logger.useConsole === true);
     assert(logger.useFile === false);
@@ -40,21 +40,21 @@ describe('Logger constructor', () => {
     assert(logger.usedTransports[0].name === 'console');
   });
 
-  it('throws when consoleOptions is null', (done) => {
+  it('throws when consoleOptions is null', function(done) {
     assert.throws(() => {
       new Logger({ useConsole: true, consoleOptions: null });
     }, /invalid console configuration/);
     done();
   });
 
-  it('throws when fileOptions is null', (done) => {
+  it('throws when fileOptions is null', function(done) {
     assert.throws(() => {
       new Logger({ useFile: true, fileOptions: null });
     }, /invalid file configuration/);
     done();
   });
 
-  it('throws when mongoOptions is null', (done) => {
+  it('throws when mongoOptions is null', function(done) {
     assert.throws(() => {
       new Logger({ useMongoDB: true, mongoOptions: null });
     }, /invalid MongoDB configuration/);
@@ -62,8 +62,8 @@ describe('Logger constructor', () => {
   });
 });
 
-describe('Console', () => {
-  it('should call info with a string', () => {
+describe('Console', function() {
+  it('should call info with a string', function() {
     const logger = new Logger({
       label: 'my console',
       level: 'info',
@@ -77,7 +77,7 @@ describe('Console', () => {
     assert(infoSpy.callCount === 1);
     infoSpy.restore();
   });
-  it('should call info with an object', () => {
+  it('should call info with an object', function() {
     const logger = new Logger({
       label: 'my console',
       level: 'info',
@@ -91,7 +91,7 @@ describe('Console', () => {
     assert(infoSpy.callCount === 1);
     infoSpy.restore();
   });
-  it('should call internal info once', () => {
+  it('should call internal info once', function() {
     const logger = new Logger({
       label: 'my console',
       level: 'info',
@@ -105,7 +105,7 @@ describe('Console', () => {
     stub.restore();
   });
 
-  it('should call error with a string', () => {
+  it('should call error with a string', function() {
     const logger = new Logger({
       label: 'my console',
       level: 'error',
@@ -119,7 +119,7 @@ describe('Console', () => {
     sinon.assert.calledOnce(errorSpy);
     errorSpy.restore();
   });
-  it('should call error with an object', () => {
+  it('should call error with an object', function() {
     const logger = new Logger({
       label: 'my console',
       level: 'error',
@@ -133,7 +133,7 @@ describe('Console', () => {
     sinon.assert.calledOnce(errorSpy);
     errorSpy.restore();
   });
-  it('should call internal error once', () => {
+  it('should call internal error once', function() {
     const logger = new Logger({
       label: 'my console',
       level: 'info',
@@ -147,7 +147,7 @@ describe('Console', () => {
     stub.restore();
   });
 
-  it('should call warn with a string', () => {
+  it('should call warn with a string', function() {
     const logger = new Logger({
       label: 'my console',
       level: 'warn',
@@ -161,7 +161,7 @@ describe('Console', () => {
     sinon.assert.calledOnce(warnSpy);
     warnSpy.restore();
   });
-  it('should call warn with an object', () => {
+  it('should call warn with an object', function() {
     const logger = new Logger({
       label: 'my console',
       level: 'warn',
@@ -175,7 +175,7 @@ describe('Console', () => {
     sinon.assert.calledOnce(warnSpy);
     warnSpy.restore();
   });
-  it('should call internal warn once', () => {
+  it('should call internal warn once', function() {
     const logger = new Logger({
       label: 'my console',
       level: 'info',
@@ -190,8 +190,8 @@ describe('Console', () => {
   });
 });
 
-describe('File', () => {
-  it('info() is called once', () => {
+describe('File', function() {
+  it('info() is called once', function() {
     // Create a spy for the 'initialize' class method, because we do not want to create the logs/files
     const initialize = sinon.stub(Logger.prototype, 'initialize');
     const method = sinon.stub(Logger.prototype, 'info').returns(true);
@@ -211,7 +211,7 @@ describe('File', () => {
     initialize.restore();
   });
 
-  it('warn() is called once', () => {
+  it('warn() is called once', function() {
     // Create a spy for the 'initialize' class method, because we do not want to create the logs/files
     const initialize = sinon.stub(Logger.prototype, 'initialize');
     const method = sinon.stub(Logger.prototype, 'warn').returns(true);
@@ -231,7 +231,7 @@ describe('File', () => {
     initialize.restore();
   });
 
-  it('error() is called once', () => {
+  it('error() is called once', function() {
     // Create a spy for the 'initialize' class method, because we do not want to create the logs/files
     const initialize = sinon.stub(Logger.prototype, 'initialize');
     const method = sinon.stub(Logger.prototype, 'error').returns(true);
