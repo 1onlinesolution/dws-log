@@ -1,6 +1,6 @@
 {
   "name": "@1onlinesolution/dws-log",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A simple Logger",
   "main": "index.js",
   "scripts": {
@@ -9,7 +9,7 @@
     "major": "npm version major",
     "lint": "eslint *.js lib/**/*.js",
     "test": "NODE_ENV=test mocha",
-    "coverage": "nyc --reporter=lcov --reporter=text --report-dir=./coverage --temp-dir=/Users/ioannis/tmp/.nyc_output npm run test",
+    "coverage": "nyc --reporter=lcov --reporter=text --report-dir=./coverage --temp-dir=./.nyc_output npm run test",
     "coverage-clean": "rm -rf ./coverage & rm -rf ./.nyc_output"
   },
   "repository": {
@@ -29,7 +29,8 @@
     "eslint": "^7.28.0",
     "eslint-plugin-security": "^1.4.0",
     "mocha": "^8.4.0",
-    "prettier": "^2.3.0"
+    "prettier": "^2.3.0",
+    "sinon": "^11.1.1"
   },
   "dependencies": {
     "winston": "^3.3.3",
